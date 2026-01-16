@@ -1,0 +1,17 @@
+0000 00A4 MOV R0 , #10 // R0 = 0x000A ( addr o f s i z e )
+0001 3004 MOV R3 , #0 // R3 = 0 (sum accumul a t o r )
+0002 1002 LDR R1 , [ R0 , #0] // R1 = [ 0 x0A ] = 5 ( l o o p count )
+0003 0016 ADDI R0 , R0 , #1 // R0++ ( p oi n t t o nex t item )
+0004 2002 LDR R2 , [ R0 , #0] // R2 = [ R0 ] ( l o a d v al u e )
+0005 3325 ADD R3 , R3 , R2 // R3 = R3 + R2 ( add t o sum)
+0006 1118 SUBI R1 , R1 , #1 // R1−− ( decrement count )
+0007 7FB1 JNE #−5 // I f R1 != 0 , jump t o 0x0003
+0008 1033 STR R3 , [ R0 , #1] // [ R0+1] = R3 ( s t o r e r e s u l t )
+0009 FFFF HALT // S t op s CPU!
+000A 0005 s i z e : 5
+000B 0001 a r r 0 : 1
+000C 0002 a r r 1 : 2
+000D 0003 a r r 2 : 3
+000E 0004 a r r 3 : 4
+000F 0005 a r r 4 : 5
+0010 0000 r e s : 0
